@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export default function Form(props) {
   return (
     <form
@@ -11,7 +9,7 @@ export default function Form(props) {
       <label>
         Top Text:
         <input
-          value={props.templatetop}
+          value={props.templateTop}
           onChange={(event) => props.setTemplateTop(event.currentTarget.value)}
           onClick={() => props.setTemplateTop('')}
         />
@@ -20,7 +18,7 @@ export default function Form(props) {
       <label>
         Bottom Text:
         <input
-          value={props.templatebottom}
+          value={props.templateBottom}
           onChange={(event) =>
             props.setTemplateBottom(event.currentTarget.value)
           }
@@ -31,7 +29,7 @@ export default function Form(props) {
       <label>
         Meme template:
         <input
-          value={props.templateimage}
+          value={props.templateImage}
           onChange={(event) =>
             props.setTemplateImage(event.currentTarget.value)
           }

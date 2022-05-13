@@ -4,12 +4,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-window.addEventListener('keydown', function (e) {
-  if ('Enter' == e.keyCode) {
-    alert('a okooo enter');
-  }
-});
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
