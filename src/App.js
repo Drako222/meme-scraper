@@ -38,7 +38,7 @@ function App() {
         setTemplateBottom={setTemplateBottom}
       />
       <br />
-      <img src={path} alt="meme" />
+      <img src={path} alt="meme" data-test-id="meme-image" />
       <br />
       <div css={stackofbuttons}>
         <DownloadButton path={path} />
