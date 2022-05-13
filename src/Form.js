@@ -7,7 +7,7 @@ export default function Form(props) {
       }}
     >
       <label>
-        Top Text
+        Top text
         <input
           value={props.templateTop}
           onChange={(event) => props.setTemplateTop(event.currentTarget.value)}
@@ -16,7 +16,7 @@ export default function Form(props) {
       </label>
       <br />
       <label>
-        Bottom Text
+        Bottom text
         <input
           value={props.templateBottom}
           onChange={(event) =>
