@@ -14,9 +14,9 @@ export default function Form(props) {
         onClick={() => props.setTemplateTop('')}
       />
       <br />
-      <label htmlFor="toptext">Bottom text</label>
+      <label htmlFor="bottomtext">Bottom text</label>
       <input
-        id="toptext"
+        id="bottomtext"
         Bottom
         text
         value={props.templateBottom}
