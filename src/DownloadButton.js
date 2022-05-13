@@ -22,39 +22,60 @@ const fancyButton = css`
 `;
 
 export default function DownloadButton(props) {
-  // Adding the fetch function to download the file
-  const download = async function () {
-    await fetch(props.path)
-      .then((response) => response.blob())
-      .then((blob) => {
-        // Create blob link to download
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `your-meme.gif`);
+  // Adding the fetch function to download the file which unfortunately doesn't work now.
 
-        // Append to html link element page
-        document.body.appendChild(link);
+  // const download = fetch(
+  // props.path,
+  // {
+  // method: 'POST',
+  // body: JSON.stringify(search),
+  // headers: {
+  // 'Content-Type': 'application/json; charset=utf-8',
+  // },
+  // }
+  // .then((response) => {
+  // if (response.status === 200) {
+  // filename = response.headers.get('content-disposition');
+  // filename = filename.match(/(?<=")(?:\\.|[^"\\])*(?=")/)[0];
+  // return response.blob();
+  // } else {
+  // return;
+  // }
+  // })
+  // .then((body) => {
+  // download(body, filename, 'application/octet-stream');
+  // }),
+  // );
 
-        // Start download
-        link.click();
+  // async function () {
+  //   await fetch(props.path)
+  //     .then((response) => response.blob())
+  //     .then((blob) => {
+  //       // Create blob link to download
+  //       const url = window.URL.createObjectURL(new Blob([blob]));
+  //       const link = document.createElement('a');
+  //       link.href = url;
+  //       link.setAttribute('download', `your-meme.gif`);
 
-        // Clean up and remove the link
-        link.parentNode.removeChild(link);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  //       // Append to html link element page
+  //       document.body.appendChild(link);
+
+  //       // Start download
+  //       link.click();
+
+  //       // Clean up and remove the link
+  //       link.parentNode.removeChild(link);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
 
   return (
-    <button
-      css={fancyButton}
-      onClick={() => {
-        download();
-      }}
-    >
-      Download
+    <button css={fancyButton}>
+      <a href={props.path} download>
+        Download
+      </a>
     </button>
   );
 }
