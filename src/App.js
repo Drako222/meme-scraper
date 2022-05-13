@@ -24,7 +24,7 @@ function App() {
     'Choose the image keyword',
   );
 
-  const path = `https://api.memegen.link/images/${image}/${top}/${bottom}.gif`;
+  const path = `https://api.memegen.link/images/${image}/${top}/${bottom}.png`;
 
   return (
     <>

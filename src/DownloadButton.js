@@ -21,6 +21,17 @@ const fancyButton = css`
   margin: 5px;
 `;
 
+const url = `https://api.memegen.link/images/buzz/memes/memes_everywhere.gif`;
+
+function download() {
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = url.split('/').pop();
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
 export default function DownloadButton(props) {
   // Adding the fetch function to download the file which unfortunately doesn't work now.
 
@@ -71,11 +82,11 @@ export default function DownloadButton(props) {
   //     });
   // };
 
+  // <a href={props.path} download></a>
+
   return (
-    <button css={fancyButton}>
-      <a href={props.path} download>
-        Download
-      </a>
+    <button css={fancyButton} onClick={() => download()}>
+      Download
     </button>
   );
 }
