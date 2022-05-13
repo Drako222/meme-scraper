@@ -30,6 +30,9 @@ function App() {
     <>
       <h1>Meme Scraper</h1>
       <Form
+        setTop={setTop}
+        setBottom={setBottom}
+        setImage={setImage}
         templateTop={templateTop}
         setTemplateTop={setTemplateTop}
         templateImage={templateImage}
