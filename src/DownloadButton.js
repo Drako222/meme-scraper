@@ -21,9 +21,7 @@ const fancyButton = css`
   margin: 5px;
 `;
 
-const url = `https://api.memegen.link/images/buzz/memes/memes_everywhere.gif`;
-
-function download() {
+function download(url) {
   const a = document.createElement('a');
   a.href = url;
   a.download = url.split('/').pop();
@@ -85,7 +83,7 @@ export default function DownloadButton(props) {
   // <a href={props.path} download></a>
 
   return (
-    <button css={fancyButton} onClick={() => download()}>
+    <button css={fancyButton} onClick={() => download(props.path)}>
       Download
     </button>
   );
