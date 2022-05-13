@@ -7,7 +7,7 @@ export default function Form(props) {
       }}
     >
       <label>
-        Top Text:
+        Top Text
         <input
           value={props.templateTop}
           onChange={(event) => props.setTemplateTop(event.currentTarget.value)}
@@ -16,7 +16,7 @@ export default function Form(props) {
       </label>
       <br />
       <label>
-        Bottom Text:
+        Bottom Text
         <input
           value={props.templateBottom}
           onChange={(event) =>
@@ -27,7 +27,7 @@ export default function Form(props) {
       </label>
       <br />
       <label>
-        Meme template:
+        Meme template
         <input
           value={props.templateImage}
           onChange={(event) =>
