@@ -6,36 +6,31 @@ export default function Form(props) {
         event.preventDefault();
       }}
     >
-      <label>
-        Top text
-        <input
-          value={props.templateTop}
-          onChange={(event) => props.setTemplateTop(event.currentTarget.value)}
-          onClick={() => props.setTemplateTop('')}
-        />
-      </label>
+      <label htmlFor="toptext">Top text</label>
+      <input
+        id="toptext"
+        value={props.templateTop}
+        onChange={(event) => props.setTemplateTop(event.currentTarget.value)}
+        onClick={() => props.setTemplateTop('')}
+      />
       <br />
-      <label>
-        Bottom text
-        <input
-          value={props.templateBottom}
-          onChange={(event) =>
-            props.setTemplateBottom(event.currentTarget.value)
-          }
-          onClick={() => props.setTemplateBottom('')}
-        />
-      </label>
+      <label htmlFor="toptext">Top text</label>
+      <input
+        id="toptext"
+        Bottom
+        text
+        value={props.templateBottom}
+        onChange={(event) => props.setTemplateBottom(event.currentTarget.value)}
+        onClick={() => props.setTemplateBottom('')}
+      />
       <br />
-      <label>
-        Meme template
-        <input
-          value={props.templateImage}
-          onChange={(event) =>
-            props.setTemplateImage(event.currentTarget.value)
-          }
-          onClick={() => props.setTemplateImage('')}
-        />
-      </label>
+      <label htmlFor="memetemplate">Meme template</label>
+      <input
+        id="memetemplate"
+        value={props.templateImage}
+        onChange={(event) => props.setTemplateImage(event.currentTarget.value)}
+        onClick={() => props.setTemplateImage('')}
+      />
     </form>
   );
 }
