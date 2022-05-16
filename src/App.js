@@ -2,9 +2,28 @@
 
 import { css } from '@emotion/react';
 import { useState } from 'react';
-import DownloadButton from './DownloadButton.js';
 import Form from './Form';
 import GenerateButton from './GenerateButton.js';
+import { saveAs } from 'file-saver';
+
+const fancyButton = css`
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #0d6efd;
+  border-color: #0d6efd;
+  margin: 5px;
+`;
 
 const stackofbuttons = css`
   display: flex;
@@ -24,7 +43,15 @@ function App() {
     'Choose the image keyword',
   );
 
-  const path = `https://api.memegen.link/images/${image}/${top}/${bottom}.png`;
+  const path = (image, top, bottom) => {
+    if (!top & !bottom) {
+      return `https://api.memegen.link/images/${image}.png`;
+    } else if (!bottom) {
+      return `https://api.memegen.link/images/${image}/${top}.png`;
+    } else {
+      return `https://api.memegen.link/images/${image}/${top}/${bottom}.png`;
+    }
+  };
 
   return (
     <>
@@ -41,11 +68,25 @@ function App() {
         setTemplateBottom={setTemplateBottom}
       />
       <br />
-      <img src={path} alt="meme" data-test-id="meme-image" />
+      <img
+        src={path(image, top, bottom)}
+        alt="meme"
+        data-test-id="meme-image"
+      />
       <br />
       <div css={stackofbuttons}>
-        <DownloadButton path={path} />
+        <button
+          css={fancyButton}
+          onClick={() => {
+            saveAs(path(image, top, bottom), 'meme.png');
+          }}
+        >
+          Download
+        </button>
         <GenerateButton
+          image={image}
+          top={top}
+          bottom={bottom}
           setTop={setTop}
           setBottom={setBottom}
           setImage={setImage}
@@ -53,6 +94,16 @@ function App() {
           templateBottom={templateBottom}
           templateImage={templateImage}
         />
+        <button
+          css={fancyButton}
+          onClick={() => {
+            setImage('');
+            setTop('');
+            setBottom('');
+          }}
+        >
+          Reset
+        </button>
       </div>
     </>
   );
