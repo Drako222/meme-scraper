@@ -11,6 +11,7 @@ export default function Form(props) {
         id="toptext"
         value={props.templateTop}
         onChange={(event) => {
+          props.setTemplateTop(event.currentTarget.value);
           props.setTop(event.currentTarget.value);
         }}
         onClick={() => props.setTemplateTop('')}
