@@ -9,12 +9,11 @@ export default function Form(props) {
       <label htmlFor="toptext">Top text</label>
       <input
         id="toptext"
-        value={props.templateTop}
+        value={props.top}
         onChange={(event) => {
-          props.setTemplateTop(event.currentTarget.value);
           props.setTop(event.currentTarget.value);
         }}
-        onClick={() => props.setTemplateTop('')}
+        onClick={() => props.setTop('')}
       />
       <br />
       <label htmlFor="bottomtext">Bottom text</label>
@@ -22,23 +21,21 @@ export default function Form(props) {
         id="bottomtext"
         Bottom
         text
-        value={props.templateBottom}
+        value={props.bottom}
         onChange={(event) => {
-          props.setTemplateBottom(event.currentTarget.value);
           props.setBottom(event.currentTarget.value);
         }}
-        onClick={() => props.setTemplateBottom('')}
+        onClick={() => props.setBottom('')}
       />
       <br />
       <label htmlFor="memetemplate">Meme template</label>
       <input
         id="memetemplate"
-        value={props.templateImage}
+        value={props.image}
         onChange={(event) => {
-          props.setTemplateImage(event.currentTarget.value);
           props.setImage(event.currentTarget.value);
         }}
-        onClick={() => props.setTemplateImage('')}
+        onClick={() => props.setImage('')}
       />
     </form>
   );

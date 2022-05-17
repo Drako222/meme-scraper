@@ -3,7 +3,6 @@
 import { css } from '@emotion/react';
 import { useState } from 'react';
 import Form from './Form';
-import GenerateButton from './GenerateButton.js';
 import { saveAs } from 'file-saver';
 
 const fancyButton = css`
@@ -35,14 +34,6 @@ function App() {
   const [bottom, setBottom] = useState('Meme Again');
   const [image, setImage] = useState('bad');
 
-  const [templateTop, setTemplateTop] = useState('Choose the top text');
-  const [templateBottom, setTemplateBottom] = useState(
-    'Choose the bottom text',
-  );
-  const [templateImage, setTemplateImage] = useState(
-    'Choose the image keyword',
-  );
-
   const path = (yourimage, yourtop, yourbottom) => {
     if (!yourtop & !yourbottom) {
       return `https://api.memegen.link/images/${yourimage}.png`;
@@ -56,17 +47,7 @@ function App() {
   return (
     <>
       <h1>Meme Scraper</h1>
-      <Form
-        setTop={setTop}
-        setBottom={setBottom}
-        setImage={setImage}
-        templateTop={templateTop}
-        setTemplateTop={setTemplateTop}
-        templateImage={templateImage}
-        setTemplateImage={setTemplateImage}
-        templateBottom={templateBottom}
-        setTemplateBottom={setTemplateBottom}
-      />
+      <Form setTop={setTop} setBottom={setBottom} setImage={setImage} />
       <br />
       <img
         src={path(image, top, bottom)}
@@ -83,23 +64,12 @@ function App() {
         >
           Download
         </button>
-        <GenerateButton
-          image={image}
-          top={top}
-          bottom={bottom}
-          setTop={setTop}
-          setBottom={setBottom}
-          setImage={setImage}
-          templateTop={templateTop}
-          templateBottom={templateBottom}
-          templateImage={templateImage}
-        />
         <button
           css={fancyButton}
           onClick={() => {
-            setTemplateImage('');
-            setTemplateTop('');
-            setTemplateBottom('');
+            setImage('');
+            setTop('');
+            setBottom('');
           }}
         >
           Reset
