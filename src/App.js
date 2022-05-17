@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <h1>Meme Scraper</h1>
-      <Form setTop={setTop} setBottom={setBottom} setImage={setImage} />
+      <Form setTop={setTop} setBottom={setBottom} setImage={setImage} top={top} bottom={bottom} image={image} />
       <br />
       <img
         src={path(image, top, bottom)}
