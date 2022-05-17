@@ -11,7 +11,6 @@ export default function Form(props) {
         id="toptext"
         value={props.templateTop}
         onChange={(event) => {
-          props.setTemplateTop(event.currentTarget.value);
           props.setTop(event.currentTarget.value);
         }}
         onClick={() => props.setTemplateTop('')}
@@ -23,7 +22,10 @@ export default function Form(props) {
         Bottom
         text
         value={props.templateBottom}
-        onChange={(event) => {props.setTemplateBottom(event.currentTarget.value); props.setBottom(event.currentTarget.value)}}
+        onChange={(event) => {
+          props.setTemplateBottom(event.currentTarget.value);
+          props.setBottom(event.currentTarget.value);
+        }}
         onClick={() => props.setTemplateBottom('')}
       />
       <br />
@@ -31,7 +33,10 @@ export default function Form(props) {
       <input
         id="memetemplate"
         value={props.templateImage}
-        onChange={(event) => {props.setTemplateImage(event.currentTarget.value); props.setImage(event.currentTarget.value)}}
+        onChange={(event) => {
+          props.setTemplateImage(event.currentTarget.value);
+          props.setImage(event.currentTarget.value);
+        }}
         onClick={() => props.setTemplateImage('')}
       />
     </form>
