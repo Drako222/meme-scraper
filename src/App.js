@@ -43,13 +43,13 @@ function App() {
     'Choose the image keyword',
   );
 
-  const path = (image, top, bottom) => {
-    if (!top & !bottom) {
-      return `https://api.memegen.link/images/${image}.png`;
-    } else if (!bottom) {
-      return `https://api.memegen.link/images/${image}/${top}.png`;
+  const path = (yourimage, yourtop, yourbottom) => {
+    if (!templateTop & !templateBottom) {
+      return `https://api.memegen.link/images/${yourimage}.png`;
+    } else if (!templateBottom) {
+      return `https://api.memegen.link/images/${yourimage}/${yourtop}.png`;
     } else {
-      return `https://api.memegen.link/images/${image}/${top}/${bottom}.png`;
+      return `https://api.memegen.link/images/${yourimage}/${yourtop}/${yourbottom}.png`;
     }
   };
 
@@ -97,9 +97,9 @@ function App() {
         <button
           css={fancyButton}
           onClick={() => {
-            setImage('');
-            setTop('');
-            setBottom('');
+            setTemplateImage('');
+            setTemplateTop('');
+            setTemplateBottom('');
           }}
         >
           Reset
