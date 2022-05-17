@@ -9,9 +9,9 @@ export default function Form(props) {
       <label>
         Top text
         <input
-          value={top}
+          value={props.top}
           onChange={(event) => {
-            setTop(event.currentTarget.value);
+            props.setTop(event.currentTarget.value);
           }}
         />
       </label>
