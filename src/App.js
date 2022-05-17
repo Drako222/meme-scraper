@@ -35,7 +35,7 @@ function App() {
   const [image, setImage] = useState('bad');
 
   const path = (yourimage, yourtop, yourbottom) => {
-    if (!yourtop & !yourbottom) {
+    if (!yourtop && !yourbottom) {
       return `https://api.memegen.link/images/${yourimage}.png`;
     } else if (!yourbottom) {
       return `https://api.memegen.link/images/${yourimage}/${yourtop}.png`;
@@ -47,7 +47,14 @@ function App() {
   return (
     <>
       <h1>Meme Scraper</h1>
-      <Form setTop={setTop} setBottom={setBottom} setImage={setImage} top={top} bottom={bottom} image={image} />
+      <Form
+        setTop={setTop}
+        setBottom={setBottom}
+        setImage={setImage}
+        top={top}
+        bottom={bottom}
+        image={image}
+      />
       <br />
       <img
         src={path(image, top, bottom)}

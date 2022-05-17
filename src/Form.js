@@ -13,7 +13,6 @@ export default function Form(props) {
         onChange={(event) => {
           props.setTop(event.currentTarget.value);
         }}
-        onClick={() => props.setTop('')}
       />
       <br />
       <label htmlFor="bottomtext">Bottom text</label>
