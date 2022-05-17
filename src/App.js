@@ -44,9 +44,9 @@ function App() {
   );
 
   const path = (yourimage, yourtop, yourbottom) => {
-    if (!templateTop & !templateBottom) {
+    if (!yourtop & !yourbottom) {
       return `https://api.memegen.link/images/${yourimage}.png`;
-    } else if (!templateBottom) {
+    } else if (!yourbottom) {
       return `https://api.memegen.link/images/${yourimage}/${yourtop}.png`;
     } else {
       return `https://api.memegen.link/images/${yourimage}/${yourtop}/${yourbottom}.png`;
