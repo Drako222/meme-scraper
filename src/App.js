@@ -66,7 +66,7 @@ function App() {
         <button
           css={fancyButton}
           onClick={() => {
-            saveAs(path(image, top, bottom), 'meme.png');
+            saveAs(urlSelector(image, top, bottom), 'meme.png');
           }}
         >
           Download
@@ -74,8 +74,10 @@ function App() {
         <button
           css={fancyButton}
           onClick={() => {
-            `https://api.memegen.link/images/${meme}/${top}/${bottom}.png`,
-            'meme.png',
+            saveAs(
+              `https://api.memegen.link/images/${image}/${top}/${bottom}.png`,
+              'meme.png',
+            );
           }}
         >
           Reset
