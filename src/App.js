@@ -34,7 +34,7 @@ function App() {
   const [bottom, setBottom] = useState('Meme Again');
   const [image, setImage] = useState('bad');
 
-  const path = (yourimage, yourtop, yourbottom) => {
+  const urlSelector = (yourimage, yourtop, yourbottom) => {
     if (!yourtop && !yourbottom) {
       return `https://api.memegen.link/images/${yourimage}.png`;
     } else if (!yourbottom) {
@@ -57,13 +57,7 @@ function App() {
       />
       <br />
       <img
-        src={path(image, top, bottom)}
-        alt="meme"
-        data-test-id="meme-image"
-      />
-      <br />
-      <img
-        src={path(image, top, bottom)}
+        src={urlSelector(image, top, bottom)}
         alt="meme"
         data-test-id="meme-image"
       />
@@ -80,9 +74,8 @@ function App() {
         <button
           css={fancyButton}
           onClick={() => {
-            setImage('');
-            setTop('');
-            setBottom('');
+            `https://api.memegen.link/images/${meme}/${top}/${bottom}.png`,
+            'meme.png',
           }}
         >
           Reset
