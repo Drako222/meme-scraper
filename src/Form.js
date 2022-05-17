@@ -6,14 +6,15 @@ export default function Form(props) {
         event.preventDefault();
       }}
     >
-      <label htmlFor="toptext">Top text</label>
-      <input
-        id="toptext"
-        value={props.top}
-        onChange={(event) => {
-          props.setTop(event.currentTarget.value);
-        }}
-      />
+      <label>
+        Top text
+        <input
+          value={top}
+          onChange={(event) => {
+            setTop(event.currentTarget.value);
+          }}
+        />
+      </label>
       <br />
       <label htmlFor="bottomtext">Bottom text</label>
       <input
