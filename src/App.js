@@ -56,6 +56,16 @@ function App() {
         image={image}
       />
       <br />
+      {image ? (
+        <img
+          src={path(image, top, bottom)}
+          alt="meme"
+          data-test-id="meme-image"
+        />
+      ) : (
+        'Error.'
+      )}
+      <br />
       <img
         src={path(image, top, bottom)}
         alt="meme"
