@@ -9,7 +9,6 @@ export default function Form(props) {
       <label>
         Top text
         <input
-          value={props.top}
           onChange={(event) => {
             props.setTop(event.currentTarget.value);
           }}
@@ -19,9 +18,6 @@ export default function Form(props) {
       <label htmlFor="bottomtext">Bottom text</label>
       <input
         id="bottomtext"
-        Bottom
-        text
-        value={props.bottom}
         onChange={(event) => {
           props.setBottom(event.currentTarget.value);
         }}
@@ -31,7 +27,6 @@ export default function Form(props) {
       <label htmlFor="memetemplate">Meme template</label>
       <input
         id="memetemplate"
-        value={props.image}
         onChange={(event) => {
           props.setImage(event.currentTarget.value);
         }}
