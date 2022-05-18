@@ -40,7 +40,7 @@ function App() {
     } else if (!yourbottom) {
       return `https://api.memegen.link/images/${yourimage}/${yourtop}/.png`;
     } else if (!yourtop) {
-      return `https://api.memegen.link/images/${yourimage}//${yourbottom}.png`;
+      return `https://api.memegen.link/images/${yourimage}/_/${yourbottom}.png`;
     } else {
       return `https://api.memegen.link/images/${yourimage}/${yourtop}/${yourbottom}.png`;
     }
