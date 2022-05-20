@@ -33,17 +33,9 @@ function App() {
   const [bottom, setBottom] = useState('Meme Again');
   const [image, setImage] = useState('bad');
 
-  const path = (yourimage, yourtop, yourbottom) => {
-    if (!yourtop && !yourbottom) {
-      return `https://api.memegen.link/images/${yourimage}.png`;
-    } else if (!yourbottom) {
-      return `https://api.memegen.link/images/${yourimage}/${yourtop}/.png`;
-    } else if (!yourtop) {
-      return `https://api.memegen.link/images/${yourimage}/_/${yourbottom}.png`;
-    } else {
-      return `https://api.memegen.link/images/${yourimage}/${yourtop}/${yourbottom}.png`;
-    }
-  };
+  const path = `https://api.memegen.link/images/${image ? image : 'bad'}/${
+    top ? top : '_'
+  }/${bottom ? bottom : '_'}.png`;
 
   return (
     <>
@@ -100,10 +92,7 @@ function App() {
         <button
           css={fancyButton}
           onClick={() => {
-            saveAs(
-              `https://api.memegen.link/images/${image}/${top}/${bottom}.png`,
-              'meme.png',
-            );
+            saveAs({ path }, 'meme.png');
           }}
         >
           Reset
