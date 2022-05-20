@@ -1,9 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
-import { useState } from 'react';
-import Form from './Form';
 import { saveAs } from 'file-saver';
+import { useState } from 'react';
 
 const fancyButton = css`
   cursor: pointer;
@@ -49,14 +48,39 @@ function App() {
   return (
     <>
       <h1>Meme Scraper</h1>
-      <Form
-        setTop={setTop}
-        setBottom={setBottom}
-        setImage={setImage}
-        top={top}
-        bottom={bottom}
-        image={image}
-      />
+      <form
+        style={{ display: 'Flex', justifyContent: 'center' }}
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
+        <label>
+          Top text
+          <input
+            onChange={(event) => {
+              setTop(event.currentTarget.value);
+            }}
+          />
+        </label>
+        <br />
+        <label htmlFor="bottomtext">Bottom text</label>
+        <input
+          id="bottomtext"
+          onChange={(event) => {
+            setBottom(event.currentTarget.value);
+          }}
+          onClick={() => setBottom('')}
+        />
+        <br />
+        <label htmlFor="memetemplate">Meme template</label>
+        <input
+          id="memetemplate"
+          onChange={(event) => {
+            setImage(event.currentTarget.value);
+          }}
+          onClick={() => setImage('')}
+        />
+      </form>
       <br />
       <img
         src={path(image, top, bottom)}
